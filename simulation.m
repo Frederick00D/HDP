@@ -556,7 +556,7 @@ function [hat_theta,CI,CI_u,traj] = private_gradient_normal(X,X_resample,h,p_n,n
         R_2 = triu(normrnd(0, noise_sd_W2/(theta(2)^2), length(theta_start), length(theta_start)));
         % Symmetrize the matrix
         W1 = R_1 + R_1' - diag(diag(R_1));
-        W2 = R_2 + R_2' - diag(diag(R_1));
+        W2 = R_2 + R_2' - diag(diag(R_2));
         M = 2 * OPT.Hess_HD_norm(X_resample,f_k,f_p,theta);
         % M = NOPT.hess(HD,theta);
         M_nois = M + W1;
